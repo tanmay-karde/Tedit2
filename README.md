@@ -1,7 +1,7 @@
 # Tedit (Python / Flask edition)
 
-Same idea as the HTML-only version — upload a photo, pick a target
-file size, get back a compressed image that lands close to it —
+Same idea as the HTML-only version  upload a photo, pick a target
+file size, get back a compressed image that lands close to it 
 but the actual compression runs in Python via Pillow instead of
 the browser's canvas API.
 
@@ -12,7 +12,7 @@ until the encoded size lands within ~8% of your target. If the
 image still can't hit the target even at the lowest quality
 (common when the target is very small relative to the photo's
 resolution), it shrinks the image dimensions by 25% and searches
-again — up to 6 rounds.
+again up to 6 rounds.
 
 ## Setup
 
@@ -42,7 +42,7 @@ tedit-python/
 
 ## Notes for the report
 
-- PNG input gets converted to RGB before saving as JPEG/WebP —
+- PNG input gets converted to RGB before saving as JPEG/WebP 
   PNG is lossless so it can't be squeezed to an arbitrary target
   the same way.
 - The `quality` parameter controls DCT quantization coarseness
