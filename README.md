@@ -46,7 +46,7 @@ tedit-python/
   PNG is lossless so it can't be squeezed to an arbitrary target
   the same way.
 - The `quality` parameter controls DCT quantization coarseness
-  under the hood — lower quality means coarser quantization of
+  under the hood lower quality means coarser quantization of
   8×8 pixel blocks, which is the actual mechanism behind the
   size/quality tradeoff.
 - Binary search converges in ~8 steps instead of a linear scan,
