@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tedit — compress your photos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+  <div id="logo">Tedit</div>
+  <div id="tagline">compress your photos — python edition</div>
+</header>
+
+<main>
+  <div id="dropzone">
+    <div class="big">drop a photo here</div>
+    <p>or tap to browse — jpg, png, webp</p>
+    <input type="file" id="fileInput" accept="image/*">
+  </div>
+
+  <div id="workspace">
+    <div class="previewRow">
+      <div class="previewCol">
+        <div class="label">original</div>
+        <img id="origImg" alt="original preview">
+        <div class="meta" id="origMeta"></div>
+      </div>
+      <div class="previewCol">
+        <div class="label">compressed</div>
+        <img id="outImg" alt="compressed preview">
+        <div class="meta" id="outMeta">not yet</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label>target size</label>
+      <div class="presetRow">
+        <div class="preset" data-kb="100">100 KB</div>
+        <div class="preset active" data-kb="500">500 KB</div>
+        <div class="preset" data-kb="1024">1 MB</div>
+        <div class="preset" data-kb="2048">2 MB</div>
+      </div>
+      <div class="customRow">
+        <input type="number" id="customKb" placeholder="custom KB" min="5">
+        <select id="formatSelect">
+          <option value="JPEG">JPEG</option>
+          <option value="WEBP">WebP</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="compressBtn">compress</button>
+    <div id="status"></div>
+
+    <div id="resultRow">
+      <div class="ratio" id="ratioText"></div>
+      <a id="downloadBtn" download="tedit-compressed.jpg">download</a>
+    </div>
+
+    <div id="resetLink">start over with a different photo</div>
+  </div>
+</main>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

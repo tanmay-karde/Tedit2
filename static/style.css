@@ -1,0 +1,127 @@
+:root {
+  --paper: #e9e4d8;
+  --paper2: #ded6c4;
+  --ink: #1c1a17;
+  --accent: #d94f3a;
+  --green: #1f7a3d;
+  --blue: #2b6fe8;
+  --card: #faf7f0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  min-height: 100%;
+  background: var(--paper);
+  font-family: 'Space Mono', monospace;
+  color: var(--ink);
+}
+body {
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,0.25), transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(0,0,0,0.08), transparent 60%),
+    linear-gradient(160deg, var(--paper), var(--paper2));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px 60px;
+}
+
+header { text-align: center; margin-bottom: 28px; }
+#logo {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 4rem;
+  color: var(--accent);
+  line-height: 1;
+}
+#tagline {
+  margin-top: 2px;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  font-size: 0.8rem;
+  color: #5c574c;
+}
+
+main {
+  width: 100%;
+  max-width: 640px;
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  border-radius: 6px;
+  padding: 28px;
+}
+
+#dropzone {
+  border: 2px dashed #b9b1a0;
+  border-radius: 6px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+#dropzone.drag { border-color: var(--blue); background: rgba(43,111,232,0.05); }
+#dropzone p { font-size: 0.85rem; color: #6b6559; margin-top: 6px; }
+#dropzone .big { font-family: 'Caveat', cursive; font-size: 1.6rem; color: var(--ink); }
+#fileInput { display: none; }
+
+#workspace { display: none; }
+#workspace.show { display: block; }
+
+.previewRow { display: flex; gap: 16px; margin: 20px 0; flex-wrap: wrap; }
+.previewCol { flex: 1; min-width: 220px; text-align: center; }
+.previewCol img {
+  max-width: 100%; max-height: 260px; border: 6px solid #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18); background: #fff;
+}
+.previewCol .label { font-family: 'Caveat', cursive; font-size: 1.15rem; margin-top: 8px; }
+.previewCol .meta { font-size: 0.72rem; color: #6b6559; margin-top: 2px; }
+
+.controls { margin-top: 6px; }
+.controls label { font-size: 0.78rem; letter-spacing: 0.06em; color: #4a463d; display: block; margin-bottom: 8px; }
+
+.presetRow { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.preset {
+  font-family: 'Space Mono', monospace; font-size: 0.75rem;
+  background: #fff; border: 1px solid #cfc7b4; border-radius: 20px;
+  padding: 6px 14px; cursor: pointer; transition: all 0.12s ease;
+}
+.preset.active, .preset:hover { border-color: var(--blue); color: var(--blue); }
+
+.customRow { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+.customRow input[type="number"] {
+  font-family: 'Space Mono', monospace; font-size: 0.85rem;
+  padding: 8px 10px; border: 1px solid #cfc7b4; border-radius: 4px; width: 100px;
+}
+.customRow select {
+  font-family: 'Space Mono', monospace; font-size: 0.8rem;
+  padding: 8px 10px; border: 1px solid #cfc7b4; border-radius: 4px;
+}
+
+#compressBtn {
+  width: 100%;
+  font-family: 'Space Mono', monospace; font-size: 0.9rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--blue); color: #fff; border: none; border-radius: 4px;
+  padding: 14px; cursor: pointer; box-shadow: 0 6px 16px rgba(43,111,232,0.3);
+  transition: transform 0.12s ease;
+}
+#compressBtn:hover { transform: scale(1.01); }
+#compressBtn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+#status { text-align: center; font-size: 0.8rem; color: #6b6559; margin-top: 12px; min-height: 18px; }
+
+#resultRow { display: none; margin-top: 18px; text-align: center; }
+#resultRow.show { display: block; }
+#resultRow .ratio { font-family: 'Caveat', cursive; font-size: 1.5rem; color: var(--green); margin-bottom: 10px; }
+#downloadBtn {
+  display: inline-block; font-family: 'Space Mono', monospace; font-size: 0.85rem;
+  letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  background: var(--accent); color: #fff; padding: 12px 28px; border-radius: 4px;
+  box-shadow: 0 6px 16px rgba(217,79,58,0.3);
+}
+
+#resetLink {
+  display: block; text-align: center; margin-top: 16px; font-size: 0.75rem;
+  color: #8a8374; cursor: pointer; text-decoration: underline;
+}
